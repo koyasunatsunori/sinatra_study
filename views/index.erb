@@ -7,16 +7,42 @@
 </head>
 
 <body>
-  <h1>これはErbで書きました</h1>
-  <p>今の時刻: <%= @now %></p>
+  <h1>連絡帳</h1>
+
+  <% if @message %>
+    <div class="message"><%= @message %></div>
+  <% end %>
+
   <div>
     <a href="/register_new">連絡先の新規作成</a>
   </div>
 
+  <div>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>名前</th>
+        </tr>
+      </thead>
+
+        <tbody>
+          <% @register.each do |register| %>
+            <tr>
+              <td><%= register.id %></td>
+              <td><%= register.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+
+    </table>
+  </div>
+
+
   <footer>
     <a href="about.html">このサービスについて</a>
   </footer>
-
+  <p>今の時刻: <%= @now %></p>
 </body>
 
 </html>

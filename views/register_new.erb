@@ -6,6 +6,16 @@
 </head>
 
 <h1>新しい連絡先</h1>
+
+<% if @register.errors.present? %>
+  エラーがあります。
+  <ul>
+    <% @register.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+    <% end %>
+  <ul>
+<% end %>
+
 <form action="register_new" method="POST">
   <input type="text" name="name">
   <input type="submit">
